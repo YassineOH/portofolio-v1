@@ -1,0 +1,102 @@
+@import "_utilities.scss";
+@import '_config.scss';
+
+
+.main {
+    @include flex(row, flex-start, space-around, 2rem);
+    padding-top: 20vh;
+
+    div:first-child {
+        min-height: 50vh;
+        @include flex(column, flex-start, space-around, 0);
+        h1 {
+            font-size: 80px;
+            letter-spacing: 1.2px;
+            line-height: 130px;
+        }
+
+        h3 {
+            color: $seconday-color;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            display: block;
+            width: 100%;
+            margin-block: .4rem;
+        }
+    }
+    
+    div:last-child {
+        align-self: flex-end;
+    }
+    
+}
+
+.myName {
+    color: $primary-color;
+}
+
+
+
+@media (max-width: 1024px) {
+    .main {
+        @include flex(column, center, flex-start, 2rem);
+        padding-top: 10vh;
+        div:first-child {
+            text-align: center;
+            h1 {
+                font-size: 70px;
+                line-height: 100px;
+            }
+
+            h3 {
+                font-size: 18px;
+            }
+        }
+
+
+        div:last-child {
+            align-self: auto;
+
+        }
+            
+    }
+}
+
+
+
+@media (max-width: 768px) {
+        .main {
+            @include flex(column, center, flex-start, 2rem);
+            padding-top: 10vh;
+
+            div:first-child {
+                text-align: center;
+        
+                h1 {
+                    font-size: 50px;
+                    line-height: 80px;
+                }
+        
+                h3 {
+                    font-size: 16px;
+                }
+            }
+
+            div:last-child {
+                .hambugerMenu {
+                    outline: none;
+                    border: none;
+                    font-size: 3rem;
+                    background-color: $seconday-color;
+                    color: #FFF;
+                    padding: 10px;
+                    height: 100px;
+                    aspect-ratio: 1;
+                    border-radius: 50%;
+                    transition: transform .3s ease-out;
+                    cursor: pointer;
+                }
+
+            }        
+        }
+}
