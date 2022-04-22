@@ -1,0 +1,132 @@
+@import "_utilities.scss";
+@import "_config.scss";
+
+.main {
+  @include flex(row, center, space-around, 0);
+  min-height: 70vh;
+
+  & > div:first-child {
+    order: 1;
+    position: relative;
+    min-width: 600px;
+    padding-block: 20px;
+    form {
+      @include flex(column, center, flex-start, 6rem);
+      height: min(700px, 80vh);
+
+      input,
+      textarea {
+        width: 100%;
+        border: 0.5px solid rgba($primary-color, 1);
+        font-size: 1rem;
+        display: inline-block;
+        height: 50px;
+        padding-left: 20px;
+        background-color: rgba(#fff, 0.15);
+        backdrop-filter: blur(5px);
+
+        &:focus {
+          outline: none;
+        }
+
+        &::placeholder {
+          color: rgba($primary-color, 0.5);
+        }
+      }
+
+      textarea {
+        padding-top: 10px;
+        resize: vertical;
+        letter-spacing: 3px;
+        min-height: 200px;
+      }
+
+      [type="submit"] {
+        background-color: $primary-color;
+        padding-left: 0;
+        cursor: pointer;
+        color: white;
+        border: none;
+
+        &:hover {
+          background-color: $secondary-color;
+        }
+      }
+    }
+  }
+  &::after {
+    position: relative;
+    content: "";
+    width: 3px;
+    height: 700px;
+    order: 2;
+    background-color: rgba($primary-color, 1);
+  }
+
+  & > div:last-child {
+    @include flex(column, center, flex-start, 2rem);
+    min-width: 600px;
+    order: 3;
+
+    h6 {
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      margin-bottom: 35px;
+    }
+
+    li {
+      color: $primary-color;
+      margin-block: 25px;
+      svg {
+        margin-right: 20px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1100px) {
+  .main {
+    @include flex(column, center, center, 0rem);
+    min-height: 70vh;
+
+    & > div:first-child {
+      order: 1;
+      position: relative;
+      min-width: 500px;
+    }
+
+    &::after {
+      position: relative;
+      content: "";
+      width: 300px;
+      height: 3px;
+      order: 2;
+      margin-bottom: 20px;
+      background-color: rgba($primary-color, 1);
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .main {
+    @include flex(column, center, center, 0rem);
+    min-height: 70vh;
+
+    & > div:first-child {
+      order: 1;
+      position: relative;
+      min-width: 350px;
+    }
+
+    &::after {
+      position: relative;
+      content: "";
+      width: 300px;
+      height: 3px;
+      order: 2;
+      margin-bottom: 20px;
+      background-color: rgba($primary-color, 1);
+    }
+  }
+}

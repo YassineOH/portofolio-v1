@@ -1,0 +1,90 @@
+@import "_utilities.scss";
+@import "_config.scss";
+
+.main {
+  @include flex(row, flex-start, space-between, 2rem);
+  & > div:first-child {
+    width: 50%;
+    & > div:first-child {
+      @include flex(row, flex-start, center, 2rem);
+      h5 {
+        @include flex(row, center, center, 0rem);
+        padding: 20px;
+        height: 50px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 1.2rem;
+      }
+    }
+    p {
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      line-height: 40px;
+      font-weight: 400;
+      text-align: justify;
+      margin-block: 2rem;
+      padding-inline: 1.4rem;
+    }
+  }
+
+  & > div:last-child {
+    width: 50%;
+    margin-block: 2rem;
+
+    & > div:first-child {
+      @include flex(row, center, center, 0);
+      h5 {
+        width: 100%;
+        text-align: center;
+        font-size: 1.3rem;
+        cursor: pointer;
+        transition: background 0.3s ease-in-out;
+      }
+    }
+    & > div:last-child {
+      overflow-x: visible;
+      min-height: 550px;
+      @include flex(row, center, center, 0);
+    }
+  }
+}
+
+.active {
+  background-color: rgba($color: #000000, $alpha: 0.15);
+}
+
+@media (max-width: 1100px) {
+  .main {
+    @include flex(column, center, space-between, 0);
+    & > div:first-child {
+      width: 100%;
+      p {
+        font-size: 1rem;
+        text-align: center;
+        line-height: 30px;
+      }
+    }
+
+    & > div:last-child {
+      margin-block: 2rem;
+      width: 100%;
+
+      & > div:first-child {
+        @include flex(row, center, center, 0);
+        h5 {
+          width: 100%;
+          text-align: center;
+          font-size: 1.2rem;
+          cursor: pointer;
+          transition: background 0.3s ease-in-out;
+        }
+      }
+      & > div:last-child {
+        width: 100%;
+        min-height: 550px;
+        @include flex(row, center, center, 0);
+      }
+    }
+  }
+}

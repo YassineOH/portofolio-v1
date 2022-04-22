@@ -1,135 +1,73 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { motion } from "framer-motion";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { motion, AnimatePresence } from "framer-motion";
+import { useScreenWidth } from "../lib/hooks/useScreenWidth";
 
-import { useScreenWidth } from "./hooks/useScreenWidth";
+import Profiles from "./Profiles";
+
+import {
+  navVariantsMobile,
+  navVariants,
+  itemVariants,
+  itemVariantsMobile,
+} from "../lib/animations/navgationVariants";
 
 import styles from "../styles/Navigation.module.scss";
 
-const containerVariants = (test) => {
-  if (test) {
-    return {
-      hidden: {
-        y: "-100vh",
-      },
-      visible: {
-        y: 0,
-        transition: {
-          type: "tween",
-          duration: 1,
-          when: "beforeChildren",
-          staggerChildren: 0.2,
-        },
-      },
-      exit: {
-        y: "-100vh",
-        transition: {
-          type: "tween",
-          when: "afterChildren",
-          staggerChildren: 0.1,
-          duration: 1,
-        },
-      },
-    };
-  }
-
-  return {
-    hidden: {
-      opacity: 0,
-    },
-    visible: {
-      y: 0,
-      x: 0,
-      opacity: 1,
-      transition: {
-        delay: 5,
-        duration: 2,
-        when: "beforeChildren",
-        staggerChildren: 0.2,
-      },
-    },
-  };
-};
-
-const navItemVariants = {
-  hidden: {
-    opacity: 0,
-    x: 100,
-    y: 100,
+const routes = [
+  {
+    path: "/",
+    name: "Home",
   },
-
-  exit: {
-    opacity: 0,
-    x: -100,
-    y: 100,
+  {
+    path: "/about",
+    name: "About Me",
   },
-
-  visible: {
-    opacity: 1,
-    x: 0,
-    y: 0,
-    transition: {
-      type: "spring",
-      damping: 100,
-      stiffness: 200,
-      mass: 12,
-    },
+  {
+    path: "/projects",
+    name: "Projects",
   },
-  hover: {
-    scale: 1.1,
+  {
+    path: "/contact",
+    name: "Contact Me",
   },
-};
+];
 
-const Navigation = ({ phoneMode, closeMenu }) => {
-  const isTabletSize = useScreenWidth(768);
-
-  const { route } = useRouter();
+const Navigation = ({ menuStatus, closeMenu }) => {
+  const isMobileScreen = useScreenWidth(600);
+  const routeInfo = useRouter();
 
   return (
-    <nav>
-      <motion.ul
-        className={!phoneMode ? styles.navContainer : styles.navContainerPhone}
-        variants={containerVariants(isTabletSize)}
-        initial="hidden"
-        animate="visible"
-        exit="exit"
-      >
-        {phoneMode && (
-          <button className={styles.closeButton} onClick={closeMenu}>
-            <FontAwesomeIcon icon={faXmark} />
-          </button>
-        )}
-        {route !== "/" && (
-          <motion.li variants={navItemVariants} whileHover={{ scale: 1.1 }}>
-            <Link href="/">
-              <a>Home</a>
-            </Link>
-          </motion.li>
-        )}
-        <motion.li variants={navItemVariants} whileHover={{ scale: 1.1 }}>
-          <Link href="/about">
-            <a>About Me</a>
-          </Link>
-        </motion.li>
-        <motion.li variants={navItemVariants} whileHover={{ scale: 1.1 }}>
-          <Link href="/projects">
-            <a>Projects</a>
-          </Link>
-        </motion.li>
-        <motion.li variants={navItemVariants} whileHover={{ scale: 1.1 }}>
-          <Link href="/faq">
-            <a>FAQ</a>
-          </Link>
-        </motion.li>
-        <motion.li variants={navItemVariants} whileHover={{ scale: 1.1 }}>
-          <Link href="/contact">
-            <a>Contact Me</a>
-          </Link>
-        </motion.li>
-      </motion.ul>
-    </nav>
+    <AnimatePresence exitBeforeEnter>
+      {(!menuStatus && isMobileScreen) || (
+        <motion.nav
+          className={styles.navContainer}
+          variants={isMobileScreen ? navVariantsMobile : navVariants}
+          animate="visible"
+          initial="hidden"
+          exit="hidden"
+        >
+          <motion.ul>
+            {routes.map((route) => {
+              let { path, name } = route;
+              return (
+                <motion.li
+                  key={name + path}
+                  className={path === routeInfo.route ? styles.active : ""}
+                  variants={isMobileScreen ? itemVariantsMobile : itemVariants}
+                  onClick={closeMenu}
+                >
+                  <Link href={path}>
+                    <a>{name}</a>
+                  </Link>
+                </motion.li>
+              );
+            })}
+          </motion.ul>
+          {isMobileScreen && <Profiles />}
+        </motion.nav>
+      )}
+    </AnimatePresence>
   );
 };
 

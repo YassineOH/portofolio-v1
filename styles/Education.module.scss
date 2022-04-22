@@ -1,0 +1,43 @@
+@import "_utilities.scss";
+@import "_config.scss";
+
+.item {
+  @include flex(row, center, flex-start, 3rem);
+  width: 100%;
+  margin-block: 2rem;
+
+  div {
+    height: 100%;
+    @include flex(column, flex-start, space-around, 0rem);
+
+    h6 {
+      font-family: $title-font;
+      letter-spacing: 2px;
+      text-transform: capitalize;
+      font-size: 1.2rem;
+    }
+
+    p {
+      font-style: italic;
+      letter-spacing: 2px;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .item {
+    @include flex(row, center, flex-start, 1rem);
+    margin-inline: 0rem;
+
+    div {
+      width: 80%;
+      h6 {
+        font-size: 1rem;
+      }
+
+      p {
+        font-size: 0.85rem;
+      }
+    }
+  }
+}

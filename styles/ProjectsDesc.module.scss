@@ -1,0 +1,86 @@
+@import "_utilities.scss";
+@import "_config.scss";
+.main {
+  @include flex(column, flex-start, center, 0.9rem);
+  height: auto;
+  width: 400px;
+  z-index: 100;
+  padding-top: 30px;
+  padding-inline: 30px;
+  a,
+  button {
+    padding: 10px;
+    display: block;
+    width: 250px;
+    text-align: left;
+    border: none;
+    border-radius: 0;
+    text-transform: lowercase;
+    font-size: 0.9rem;
+    color: $light-color;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    svg {
+      margin-right: 10px;
+    }
+  }
+
+  header {
+    h6 {
+      font-size: 1.2rem;
+      text-transform: capitalize;
+      margin-bottom: 20px;
+      letter-spacing: 4px;
+      font-family: $title-font;
+    }
+    div {
+      margin-bottom: 20px;
+      span {
+        font-weight: bold;
+        font-style: italic;
+      }
+    }
+    &::after {
+      content: "";
+      display: block;
+      background-color: $secondary-color;
+      width: 100%;
+      box-shadow: 0px 5px 5px 1px rgba($secondary-color, 0.5);
+      z-index: 20;
+      height: 1px;
+      margin-inline: auto;
+    }
+  }
+  article {
+    font-weight: 400;
+    word-wrap: break-word;
+    text-align: left;
+    line-height: 30px;
+    padding-left: 30px;
+  }
+}
+
+.githubBtn {
+  background-color: #24292f;
+}
+
+.demoBtn {
+  background-color: $primary-color;
+}
+
+.close {
+  background-color: $secondary-color;
+}
+
+@media (max-width: 600px) {
+  .main {
+    @include flex(column, flex-start, center, 0.9rem);
+    height: auto;
+    width: 355px;
+    z-index: 100;
+    padding-left: 30px;
+  }
+}

@@ -1,0 +1,77 @@
+@import "_utilities.scss";
+@import "_config.scss";
+
+.main {
+  @include flex(row, center, center, 3rem);
+  min-height: 70vh;
+  flex-wrap: wrap;
+  & > div {
+    @include flex(row, flex-start, flex-start, 0);
+    margin-inline: 70px;
+    margin-block: 50px;
+    width: auto;
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid rgba($primary-color, 0.4);
+    transition: width 0.3s ease;
+    border-radius: 5px;
+    backdrop-filter: blur(0px);
+    box-shadow: -5px 5px 1px 1px rgba(#000000, 0.6);
+    & > div:first-child {
+      padding: 30px;
+      min-width: 200px;
+
+      p {
+        text-align: center;
+        font-weight: bold;
+        letter-spacing: 2px;
+        text-transform: capitalize;
+        margin-top: 1rem;
+      }
+
+      button {
+        position: absolute;
+        inset: calc(50% - 25px) calc(50% - 100px);
+        padding: 5px;
+        color: $light-color;
+        background-color: $secondary-color;
+        text-align: center;
+        width: auto;
+        outline: none;
+        border: none;
+        height: 50px;
+        transform-origin: center;
+        cursor: pointer;
+      }
+
+      &:hover {
+        backdrop-filter: blur(10px);
+        img {
+          transition: transform 0.3s ease-in-out;
+        }
+        img {
+          filter: blur(3px);
+          transform: scale(1.2) rotate(5deg);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .main {
+    @include flex(row, center, space-around, 0);
+    flex-wrap: wrap;
+    & > div {
+      margin-inline: 10px;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .main {
+    & > div {
+      margin-inline: 0;
+      @include flex(column, center, space-around, 0);
+    }
+  }
+}
