@@ -119,7 +119,12 @@ const Technologies = () => {
                 cursor: "pointer",
               }}
             >
-              <Image src={`/assets/${img.img}`} height={50} width={50} />
+              <Image
+                src={`/assets/${img.img}`}
+                height={50}
+                width={50}
+                alt={img.title}
+              />
               <p>{img.title}</p>
             </motion.div>
           ))}
@@ -145,7 +150,12 @@ const Technologies = () => {
                 cursor: "pointer",
               }}
             >
-              <Image src={`/assets/${img.img}`} height={50} width={50} />
+              <Image
+                src={`/assets/${img.img}`}
+                height={50}
+                width={50}
+                alt={img.title}
+              />
               <p>{img.title}</p>
             </motion.div>
           ))}
@@ -170,7 +180,12 @@ const Technologies = () => {
                 cursor: "pointer",
               }}
             >
-              <Image src={`/assets/${img.img}`} height={50} width={50} />
+              <Image
+                src={`/assets/${img.img}`}
+                height={50}
+                width={50}
+                alt={img.title}
+              />
               <p>{img.title}</p>
             </motion.div>
           ))}

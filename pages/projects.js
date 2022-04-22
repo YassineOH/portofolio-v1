@@ -14,7 +14,7 @@ import styles from "../styles/Projects.module.scss"
 
 
 
-const projects = () => {
+const Projects = () => {
     const [isHovered, setIsHovered] = useState(false)
     const [openProject, setOpenProject] = useState(null)
     const isPhoneScreen = useScreenWidth(600)
@@ -42,7 +42,9 @@ const projects = () => {
                             <div id={prj.id} onMouseEnter={(e) => setIsHovered(prj.id)} onMouseLeave={() => setIsHovered(false)}>
                                 <Image src={prj.img}
                                     height={400}
-                                    width={200} />
+                                    width={200}
+                                    alt={prj.name}
+                                />
                                 {
                                     !openProject && (
                                         <p>{prj.name}</p>
@@ -71,4 +73,4 @@ const projects = () => {
     )
 }
 
-export default projects
+export default Projects

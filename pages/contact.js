@@ -1,3 +1,5 @@
+import { useRef } from "react"
+import emailjs from '@emailjs/browser';
 import Image from "next/image"
 import classNames from "classnames"
 import { motion } from "framer-motion"
@@ -12,7 +14,21 @@ import styles from "../styles/contact.module.scss"
 import { containerVariants } from "../lib/animations/projectsVariants"
 
 
-const contact = () => {
+const Contact = () => {
+    const form = useRef();
+    console.log(process.env.NEXT_APP_PUBLIC_KEY)
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        emailjs.sendForm("gmail", "template_12dpj1k", form.current, "aj1HPmI6E1Pt4Et5-")
+            .then((result) => {
+                console.log(result.text);
+            }, (error) => {
+                console.log(error.text);
+            });
+    };
+
     return (
         <>
             <section >
@@ -21,7 +37,7 @@ const contact = () => {
                 </h2>
                 <motion.div className={classNames("container", styles.main)} style={{ marginInline: "auto" }} variants={containerVariants} animate="visible" initial="hidden">
                     <div>
-                        <form>
+                        <form ref={form} onSubmit={sendEmail}>
                             <input type="text" id="name" name="name" placeholder="your full name" required />
                             <input type="email" id="mail" name="mail" placeholder="your adress mail" required />
                             <textarea name="message" id="message" placeholder="your message" required></textarea>
@@ -32,17 +48,18 @@ const contact = () => {
                         <Image
                             src="/assets/me.jpg"
                             width={350}
-                            height={466.66} />
+                            height={466.66}
+                            alt="me" />
                         <div>
                             <h6> my contact info :</h6>
                             <ul>
                                 <li>
-                                    <a href="https://www.linkedin.com/in/yassine-ofqir-hamma-52b5a7165/" target="_blank">
+                                    <a href="https://www.linkedin.com/in/yassine-ofqir-hamma-52b5a7165/" target="_blank" rel="noreferrer">
                                         <FontAwesomeIcon icon={faLinkedin} /> <span>YASSINE OFQIR-HAMMA</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="https://github.com/YassineOH" target="_blank">
+                                    <a href="https://github.com/YassineOH" target="_blank" rel="noreferrer">
                                         <FontAwesomeIcon icon={faGithub} /> <span>YassineOH</span>
                                     </a>
                                 </li>
@@ -64,4 +81,4 @@ const contact = () => {
     )
 }
 
-export default contact
+export default Contact

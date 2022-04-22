@@ -85,7 +85,7 @@ const Education = () => {
             <h6>
               {item.title}{" "}
               {item?.link && (
-                <a href={item.link} target="_blank">
+                <a href={item.link} target="_blank" rel="noreferrer">
                   <FontAwesomeIcon icon={faUpRightFromSquare} />
                 </a>
               )}

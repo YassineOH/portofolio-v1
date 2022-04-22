@@ -10,7 +10,7 @@ import Technologies from "../components/Technologies"
 import { containerVariants, paraVariants, subContainerVariants } from "../lib/animations/aboutVariants"
 
 
-const about = () => {
+const About = () => {
     const [activeTab, setActiveTab] = useState(true)
     const [activePara, setActivePara] = useState(true)
 
@@ -102,4 +102,4 @@ const about = () => {
     )
 }
 
-export default about
+export default About

@@ -40,13 +40,19 @@ const ProjectsDesc = ({ prj, exit }) => {
               className={styles.githubBtn}
               href={prj.githubLink}
               target="_blank"
+              rel="noreferrer"
             >
               <FontAwesomeIcon icon={faGithub} />
               Go To The Source Code
             </a>
           )}
           {prj.link && (
-            <a className={styles.demoBtn} href={prj.link} target="_blank">
+            <a
+              className={styles.demoBtn}
+              href={prj.link}
+              target="_blank"
+              rel="noreferrer"
+            >
               <FontAwesomeIcon icon={faDesktop} />
               View Live demo
             </a>
