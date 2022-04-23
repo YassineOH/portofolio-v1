@@ -34,7 +34,7 @@ export default function Home() {
       <motion.div variants={buttonVariants}>
         <div>
           <Link href="/contact">
-            <a>
+            <a className={styles.contact}>
               Contact Me
             </a>
           </Link>
