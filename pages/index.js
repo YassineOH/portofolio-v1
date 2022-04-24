@@ -24,7 +24,7 @@ export default function Home() {
 
         <h1>
           <motion.span variants={typedVariants}>
-            <AnimatedText text="Hi, I'm <br /> <span>YASSINE OFQIR-HAMMA</span> <br /> a web developer" />
+            <AnimatedText text="Hi, I'm <br /> <span>YASSINE OFQIR-HAMMA</span> <br /> a web developer" speed={60} />
           </motion.span>
         </h1>
         <motion.p variants={subTitleVariants}>

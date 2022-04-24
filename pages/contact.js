@@ -8,15 +8,15 @@ import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons"
 import { faEnvelope, faLocationPin } from "@fortawesome/free-solid-svg-icons"
 
 
+
 import AnimatedText from "../components/AnimatedText"
 
 import styles from "../styles/contact.module.scss"
-import { containerVariants } from "../lib/animations/projectsVariants"
+import { containerVariants } from "../lib/animations/contactVariants"
 
 
 const Contact = () => {
     const form = useRef();
-    console.log(process.env.NEXT_APP_PUBLIC_KEY)
 
     const sendEmail = (e) => {
         e.preventDefault();

@@ -56,7 +56,7 @@ const About = () => {
                                 ) : (
                                     <div>
                                         <motion.p variants={paraVariants}>
-                                            Indeed, I am following the roadmap of full stack developer. Consequently, Nodejs and Express.js are my main goals for now to learn. Additionally, there are more tech that I am so excited to learn, besides what I have mentioned before, such as, headless CMS, Authentication, Web sockets, JAM stack and MERN stack and more. <strong>Learning process never stop.</strong>
+                                            Indeed, I am following the roadmap of full stack developer. Consequently, Nodejs and Express.js are my main goals for now to learn. Additionally, there are more tech that I am so excited to learn, besides what I have mentioned before, such as, Blockchain, WEB3, Data analysis and more. <strong>Learning process never stop.</strong>
 
                                         </motion.p>
                                         <motion.p variants={paraVariants}>

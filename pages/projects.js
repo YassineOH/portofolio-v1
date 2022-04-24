@@ -25,17 +25,17 @@ const Projects = () => {
 
     return (
 
-        <motion.section variants={containerVariants}
-            animate="visible"
-            initial="hidden"
-            exit="exit">
+        <section >
 
             <h2>
                 <AnimatedText text="Projects" />
             </h2>
 
 
-            <div className={classNames("container", styles.main)}>
+            <motion.div className={classNames("container", styles.main)} variants={containerVariants}
+                animate="visible"
+                initial="hidden"
+                exit="exit">
                 {
                     data.map(prj => (
                         <motion.div key={prj.id} id={prj.id + prj.name} variants={projectVariants} >
@@ -68,8 +68,8 @@ const Projects = () => {
                         </motion.div>
                     ))
                 }
-            </div>
-        </motion.section>
+            </motion.div>
+        </section>
     )
 }
 

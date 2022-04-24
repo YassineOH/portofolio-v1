@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
-import { useScreenWidth } from "../lib/hooks/useScreenWidth";
+import Head from "next/head";
+import { useRouter } from "next/router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark, faBars } from "@fortawesome/free-solid-svg-icons";
+
+import { useScreenWidth } from "../lib/hooks/useScreenWidth";
 
 import ParticleBackground from "../components/ParticleBackground";
 import Navigation from "./Navigation";
@@ -12,25 +15,41 @@ const Layout = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const closeMenu = () => setIsMenuOpen(false);
   const [init, setInit] = useState(false);
+  const routeInfo = useRouter();
 
   useEffect(() => {
     setInit(true);
   }, []);
 
   return (
-    <div className={styles.layout}>
-      <ParticleBackground />
-      {init && isMobileScreen && (
-        <div className="menutoggle" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          <FontAwesomeIcon
-            icon={!isMenuOpen ? faBars : faXmark}
-            className={styles.icons}
-          />
-        </div>
-      )}
-      <Navigation menuStatus={isMenuOpen} closeMenu={closeMenu} />
-      {children}
-    </div>
+    <>
+      <Head>
+        <title>
+          {" "}
+          YASSINE OFQIR-HAMMA | {routeInfo.route
+            .replace("/", "")
+            .toUpperCase()}{" "}
+        </title>
+        <meta name="author" content="yassien ofqir-hamma" />
+        <meta name="description" content="my portfolio"></meta>
+      </Head>
+      <div className={styles.layout}>
+        <ParticleBackground />
+        {init && isMobileScreen && (
+          <div
+            className="menutoggle"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            <FontAwesomeIcon
+              icon={!isMenuOpen ? faBars : faXmark}
+              className={styles.icons}
+            />
+          </div>
+        )}
+        <Navigation menuStatus={isMenuOpen} closeMenu={closeMenu} />
+        {children}
+      </div>
+    </>
   );
 };
 
