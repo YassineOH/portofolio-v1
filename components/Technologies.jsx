@@ -106,19 +106,7 @@ const Technologies = () => {
         </strong>
         <div>
           {data1.map((img, i) => (
-            <motion.div
-              key={img.title + i}
-              variants={imaVariants}
-              whileHover={{
-                scaleX: 1.3,
-                scaleY: 1.3,
-                backgroundColor: "rgba(255, 255, 255, .3)",
-                borderRadius: 10,
-                cursor: "pointer",
-                padding: 5,
-                cursor: "pointer",
-              }}
-            >
+            <motion.div key={img.title + i} variants={imaVariants}>
               <Image
                 src={`/assets/${img.img}`}
                 height={50}
@@ -137,19 +125,7 @@ const Technologies = () => {
 
         <div>
           {data2.map((img, i) => (
-            <motion.div
-              key={img.title + i}
-              variants={imaVariants}
-              whileHover={{
-                scaleX: 1.3,
-                scaleY: 1.3,
-                backgroundColor: "rgba(255, 255, 255, .3)",
-                borderRadius: 10,
-                cursor: "pointer",
-                padding: 5,
-                cursor: "pointer",
-              }}
-            >
+            <motion.div key={img.title + i} variants={imaVariants}>
               <Image
                 src={`/assets/${img.img}`}
                 height={50}
@@ -167,19 +143,7 @@ const Technologies = () => {
         </strong>
         <div>
           {data3.map((img, i) => (
-            <motion.div
-              key={img.title + i}
-              variants={imaVariants}
-              whileHover={{
-                scaleX: 1.3,
-                scaleY: 1.3,
-                backgroundColor: "rgba(255, 255, 255, .3)",
-                borderRadius: 10,
-                cursor: "pointer",
-                padding: 5,
-                cursor: "pointer",
-              }}
-            >
+            <motion.div key={img.title + i} variants={imaVariants}>
               <Image
                 src={`/assets/${img.img}`}
                 height={50}

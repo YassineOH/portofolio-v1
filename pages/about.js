@@ -23,18 +23,18 @@ const About = () => {
                 initial="hidden"
             >
                 <h2>
-                    <AnimatedText text="About Me" />
+                    <AnimatedText text="About Me" speed={50} />
                 </h2>
                 <div className={classNames(styles.main, "container")}>
                     <motion.div variants={subContainerVariants} >
                         <div>
                             <motion.h5
                                 variants={paraVariants}
-                                className={activePara ? styles.active : ""}
+                                className={activePara ? styles.activePara : ""}
                                 onClick={() => setActivePara(true)}>1</motion.h5>
                             <motion.h5
                                 variants={paraVariants}
-                                className={!activePara ? styles.active : ""}
+                                className={!activePara ? styles.activePara : ""}
                                 onClick={() => setActivePara(false)}>2</motion.h5>
                         </div>
                         <div>

@@ -72,13 +72,15 @@ const Education = () => {
           key={item.title + i}
           className={styles.item}
           variants={itemVariants}
-          whileHover={{
-            scale: 1.1,
-            backgroundColor: "rgba(255, 255, 255, .3)",
-            borderRadius: 10,
-            cursor: "pointer",
-            padding: 10,
-          }}
+          onClick={() => item.link && window.open(item.link)}
+          whileHover={
+            item.link && {
+              scale: 1.1,
+              backgroundColor: "rgba(255, 255, 255, .3)",
+              borderRadius: 10,
+              cursor: "pointer",
+            }
+          }
         >
           <Image src={item.img} height={50} width={50} alt={item.description} />
           <div>

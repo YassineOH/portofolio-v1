@@ -64,18 +64,6 @@
 
 @media (max-width: 900px) {
   .main {
-    @include flex(row, center, flex-start, 5rem);
-    div:first-child {
-      h1 {
-        font-size: 2.5rem;
-        line-height: 70px;
-      }
-    }
-  }
-}
-
-@media (max-width: 600px) {
-  .main {
     @include flex(column, center, flex-start, 5rem);
     padding-top: 5rem;
     div:first-child {

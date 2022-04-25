@@ -64,13 +64,27 @@
         border-radius: 2px;
         margin-inline: auto;
       }
+      li {
+        font-weight: bolder;
+        font-size: 1.1rem;
+      }
 
       div {
         width: 90%;
         margin-inline: auto;
       }
-      // background-color: rgba(255, 255, 255, 0.15);
+      // background-color: rgba(255, 255, 255, 0.8);
       // backdrop-filter: blur(5px);
+    }
+    &::after {
+      content: "";
+      top: 0;
+      right: 0;
+      position: fixed;
+      z-index: -1;
+      height: 100vh;
+      width: 100vw;
+      background-color: rgba(#fff, 0.1);
     }
   }
 }

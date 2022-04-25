@@ -1,0 +1,60 @@
+@import "_utilities.scss";
+@import "_config.scss";
+
+.main {
+  @include flex(row, center, center, 0);
+  position: absolute;
+  inset: 0;
+  z-index: 100;
+  width: 100vw;
+  height: 100%;
+  background-color: rgba(#000000, 0.4);
+
+  & > div {
+    @include flex(column, center, center, 2rem);
+    width: 300px;
+    height: 400px;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    svg {
+      font-size: 4rem;
+    }
+
+    h6 {
+      font-size: 1.1rem;
+      text-transform: capitalize;
+      letter-spacing: 2px;
+      text-align: center;
+    }
+
+    button {
+      background-color: transparent;
+      padding: 10px;
+      width: 200px;
+      height: 60px;
+      border-radius: 30px;
+      text-align: center;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+  }
+}
+
+.success {
+  color: $primary-color;
+}
+
+.successBtn {
+  color: $primary-color;
+  border: 1px solid $primary-color;
+}
+
+.error {
+  color: $secondary-color;
+}
+
+.errorBtn {
+  color: $secondary-color;
+  border: 1px solid $secondary-color;
+}

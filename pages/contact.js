@@ -1,4 +1,4 @@
-import { useRef } from "react"
+import { useRef, useState } from "react"
 import emailjs from '@emailjs/browser';
 import Image from "next/image"
 import classNames from "classnames"
@@ -8,7 +8,7 @@ import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons"
 import { faEnvelope, faLocationPin } from "@fortawesome/free-solid-svg-icons"
 
 
-
+import Modal from "../components/Modal"
 import AnimatedText from "../components/AnimatedText"
 
 import styles from "../styles/contact.module.scss"
@@ -17,17 +17,23 @@ import { containerVariants } from "../lib/animations/contactVariants"
 
 const Contact = () => {
     const form = useRef();
+    const [modal, setModal] = useState(false)
+    const [status, setStatus] = useState(null)
 
     const sendEmail = (e) => {
         e.preventDefault();
 
         emailjs.sendForm("gmail", "template_12dpj1k", form.current, "aj1HPmI6E1Pt4Et5-")
             .then((result) => {
-                console.log(result.text);
+                setModal(true)
+                setStatus(true)
             }, (error) => {
-                console.log(error.text);
+                setModal(true)
+                setStatus(false)
             });
     };
+
+    const closeModal = () => setModal(false)
 
     return (
         <>
@@ -74,6 +80,10 @@ const Contact = () => {
                     </div>
                 </ motion.div>
             </section>
+
+            {
+                modal && <Modal status={status} closeModal={closeModal} />
+            }
             <footer style={{ textAlign: "center" }}>
                 <small>@ YASSINE OFQIR-HAMMA, built using <i>NextJS</i> </small>
             </footer>

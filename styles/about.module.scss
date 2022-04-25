@@ -37,9 +37,10 @@
       h5 {
         width: 100%;
         text-align: center;
+        padding-bottom: 10px;
         font-size: 1.3rem;
         cursor: pointer;
-        transition: background 0.3s ease-in-out;
+        transition: border 0.1s ease-in-out;
       }
     }
     & > div:last-child {
@@ -51,6 +52,9 @@
 }
 
 .active {
+  border-bottom: 3px black solid;
+}
+.activePara {
   background-color: rgba($color: #000000, $alpha: 0.15);
 }
 
