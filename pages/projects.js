@@ -1,15 +1,13 @@
 import { useState } from "react"
 import Link from "next/link";
-import { useScreenWidth } from "../lib/hooks/useScreenWidth"
 import Image from "next/dist/client/image";
 import classNames from "classnames"
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 import AnimatedText from "../components/AnimatedText"
-import ProjectsDesc from "../components/ProjectsDesc";
 
 import data from "../lib/data/projectsData"
-import { containerVariants, projectVariants, openVariants, openVariantsPhone } from "../lib/animations/projectsVariants"
+import { containerVariants, projectVariants } from "../lib/animations/projectsVariants"
 
 import styles from "../styles/Projects.module.scss"
 
@@ -17,22 +15,13 @@ import styles from "../styles/Projects.module.scss"
 
 const Projects = () => {
     const [isHovered, setIsHovered] = useState(false)
-    const [openProject, setOpenProject] = useState(null)
-    const isPhoneScreen = useScreenWidth(600)
-
-    const closeProject = () => setOpenProject(null)
-
 
 
     return (
-
         <section >
-
             <h2>
                 <AnimatedText text="Projects" />
             </h2>
-
-
             <motion.div className={classNames("container", styles.main)} variants={containerVariants}
                 animate="visible"
                 initial="hidden"
@@ -46,11 +35,6 @@ const Projects = () => {
                                     width={200}
                                     alt={prj.name}
                                 />
-                                {
-                                    !openProject && (
-                                        <p>{prj.name}</p>
-                                    )
-                                }
                                 {
                                     (Number(isHovered) === prj.id) && (
                                         <Link href={`/projects/${prj.id}`}>
