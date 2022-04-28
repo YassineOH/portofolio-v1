@@ -1,4 +1,5 @@
 import { useState } from "react"
+import Link from "next/link";
 import { useScreenWidth } from "../lib/hooks/useScreenWidth"
 import Image from "next/dist/client/image";
 import classNames from "classnames"
@@ -52,19 +53,12 @@ const Projects = () => {
                                 }
                                 {
                                     (Number(isHovered) === prj.id) && (
-                                        <button onClick={() => setOpenProject(prj)}>View More</button>
+                                        <Link href={`/projects/${prj.id}`}>
+                                            <button >View More</button>
+                                        </Link>
                                     )
                                 }
                             </div>
-                            <AnimatePresence>
-                                {
-                                    (openProject?.id === prj.id) && (
-                                        <motion.div variants={isPhoneScreen ? openVariantsPhone : openVariants} exit={isPhoneScreen ? openVariantsPhone.exit : openVariants.exit}>
-                                            <ProjectsDesc prj={openProject} exit={closeProject} key={prj.id + prj.id} />
-                                        </motion.div>
-                                    )
-                                }
-                            </AnimatePresence>
                         </motion.div>
                     ))
                 }
