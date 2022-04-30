@@ -3,7 +3,6 @@ import Image from "next/image"
 import Link from "next/link";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useScreenWidth } from "../../lib/hooks/useScreenWidth";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import {
     faDesktop,
@@ -17,7 +16,7 @@ import data from "../../lib/data/projectsData"
 const Project = ({ project }) => {
 
     return (
-        <article className={classNames("container", styles.main)}>
+        project?.name && (<article className={classNames("container", styles.main)}>
             <Image width={350} height={700} alt={project.name} src={project.img} />
             <div>
                 <header>
@@ -66,7 +65,7 @@ const Project = ({ project }) => {
 
                 <p>{project.desc}</p>
 
-                <Link href="/projects">
+                <Link href="/projects" passHref>
                     <button className={styles.close}>
                         <FontAwesomeIcon icon={faArrowLeft} />
                         Back to Projects Page</button>
@@ -74,7 +73,7 @@ const Project = ({ project }) => {
 
 
             </div>
-        </article>
+        </article>)
     )
 }
 

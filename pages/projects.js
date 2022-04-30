@@ -37,7 +37,7 @@ const Projects = () => {
                                 />
                                 {
                                     (Number(isHovered) === prj.id) && (
-                                        <Link href={`/projects/${prj.id}`}>
+                                        <Link href={`/projects/${prj.id}`} passHref>
                                             <button >View More</button>
                                         </Link>
                                     )
