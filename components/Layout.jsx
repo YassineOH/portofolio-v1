@@ -31,7 +31,12 @@ const Layout = ({ children }) => {
             .toUpperCase()}{" "}
         </title>
         <meta name="author" content="yassien ofqir-hamma" />
-        <meta name="description" content="my portfolio"></meta>
+        <meta
+          name="description"
+          content="Hi there, I am YASSINE OFQIR-HAMMA, 24-year-old from Morocco.
+
+Loving programming and problem solving is the main reason that push me to start writing lines of codes. I begin my journey in web development by discovering FreeCodeCamp website where I have learned the basics of things, then I start learning more advanced topic like JavaScript Libraries and frameworks such react and next."
+        ></meta>
       </Head>
       <div className={styles.layout}>
         <ParticleBackground />

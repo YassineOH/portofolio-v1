@@ -21,15 +21,14 @@ export default function Home() {
     >
 
       <div>
-
         <h1>
           <motion.span variants={typedVariants}>
             <AnimatedText text="Hi, I'm <br /> <span>YASSINE OFQIR-HAMMA</span> <br /> a web developer" speed={60} />
           </motion.span>
         </h1>
-        <motion.p variants={subTitleVariants}>
+        <motion.h2 variants={subTitleVariants}>
           a self-taught frontend developer 💻, and solar power engineer☀️.
-        </motion.p>
+        </motion.h2>
       </div>
       <motion.div variants={buttonVariants}>
         <div>
