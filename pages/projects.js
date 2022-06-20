@@ -35,6 +35,7 @@ const Projects = () => {
                                     width={200}
                                     alt={prj.name}
                                 />
+                                <h4 className={styles.prjName}>{prj.name}</h4>
                                 {
                                     (Number(isHovered) === prj.id) && (
                                         <Link href={`/projects/${prj.id}`} passHref>
@@ -47,7 +48,7 @@ const Projects = () => {
                     ))
                 }
             </motion.div>
-        </section>
+        </section >
     )
 }
 

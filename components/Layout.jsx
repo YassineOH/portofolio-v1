@@ -15,21 +15,25 @@ const Layout = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const closeMenu = () => setIsMenuOpen(false);
   const [init, setInit] = useState(false);
+  const [title, setTitle] = useState("yassine ofqir-hamma");
   const routeInfo = useRouter();
 
   useEffect(() => {
     setInit(true);
   }, []);
 
+  useEffect(() => {
+    if (routeInfo.route !== "/") {
+      setTitle(`Yassine OH | ${routeInfo.route.replace("/", "")}`);
+    } else {
+      setTitle("yassine ofqir-hamma");
+    }
+  }, [routeInfo.route]);
+
   return (
     <>
       <Head>
-        <title>
-          {" "}
-          YASSINE OFQIR-HAMMA | {routeInfo.route
-            .replace("/", "")
-            .toUpperCase()}{" "}
-        </title>
+        <title>{title.toUpperCase()}</title>
         <meta name="author" content="yassien ofqir-hamma" />
         <meta
           name="description"
