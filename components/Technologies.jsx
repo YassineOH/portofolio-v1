@@ -16,7 +16,11 @@ const data1 = [
   },
   {
     img: "js.svg",
-    title: "javscript",
+    title: "javascript",
+  },
+  {
+    img: "typescript.svg",
+    title: "typescript",
   },
 ];
 const data2 = [
@@ -25,12 +29,8 @@ const data2 = [
     title: "react",
   },
   {
-    img: "bootstrap.svg",
-    title: "bootstrap",
-  },
-  {
-    img: "mui.svg",
-    title: "material UI",
+    img: "angular.svg",
+    title: "angular",
   },
   {
     img: "nextjs.svg",
@@ -41,8 +41,13 @@ const data2 = [
     title: "redux toolkit",
   },
   {
-    img: "framerMotion.svg",
-    title: "FramerMotion",
+    img: "bootstrap.svg",
+    title: "bootstrap",
+  },
+
+  {
+    img: "tailwind.svg",
+    title: "tailwind",
   },
 ];
 
@@ -56,12 +61,12 @@ const data3 = [
     title: "git",
   },
   {
-    img: "github.svg",
-    title: "github",
+    img: "graphql.svg",
+    title: "graphql",
   },
   {
-    img: "markdown.svg",
-    title: "markdown",
+    img: "postman.svg",
+    title: "postman",
   },
   {
     img: "sass.svg",

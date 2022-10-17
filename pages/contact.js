@@ -70,7 +70,9 @@ const Contact = () => {
                                     </a>
                                 </li>
                                 <li>
-                                    <FontAwesomeIcon icon={faEnvelope} /> <span>yassine.frontend@gmail.com</span>
+                                    <a href="mailto:yassine.frontend@gmail.com" target="_blank" rel="noreferrer">
+                                        <FontAwesomeIcon icon={faEnvelope} /> <span>yassine.frontend@gmail.com</span>
+                                    </a>
                                 </li>
                                 <li>
                                     <FontAwesomeIcon icon={faLocationPin} /> <span>Morocco, Rabat.</span>
